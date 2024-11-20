@@ -149,10 +149,6 @@ const applyFirstTimeDiscount = () => {
 }
 
 // window.onload = applyFirstTimeDiscount;
-window.onload = function() {
-    const preloader = document.getElementById('preloader');
-    preloader.style.display = 'none'; // Hide preloader after content is loaded
-}
 
 // Input for apply coupon code
 document.getElementById('applyCouponButton').addEventListener('click', function () {
