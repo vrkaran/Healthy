@@ -81,46 +81,41 @@
     width: 15% !important;
     opacity: 1 !important;
 }
+/* Preloader styles */
+/* Preloader styles */
+/* Preloader container */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f6f5f5; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
+    position: fixed; /* Fixed position on the viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    background: #f6f5f5; /* Background color */
+    display: flex; /* Center content using flexbox */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    z-index: 9999; /* Place on top of all other elements */
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s ease; /* Smooth fade-out transition */
 }
 
+/* Responsive preloader video */
 #preloader-video {
-    width: 200%; 
-    height: auto; 
-    max-width: 600px; 
+    max-width: 100%; /* Scale down the width to fit */
+    max-height: 100%; /* Scale down the height to fit */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the video fits within the preloader container */
 }
 
-
-@media (max-width: 780px) {
-   
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 48%;
-    height: 48%;
-    background: #f6f5f5; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
+/* Optional: For smaller devices */
+@media (max-width: 768px) {
+    #preloader-video {
+        max-width: 90%; /* Slight margin for smaller screens */
+        max-height: 90%; /* Slight margin for smaller screens */
+    }
 }
-#preloader-video {
-    width: 100%; 
-    height: auto; 
-    max-width: 600px; 
-}
-}
+        
 .circle {
       position: absolute;
       width: 20px;
@@ -156,6 +151,30 @@
 
 <body>
 
+
+
+    <div id="preloader">
+        <video autoplay muted loop id="preloader-video">
+            <source src="preloader.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+        </video>
+    </div>
+    <script>
+        window.addEventListener('load', function () {
+            const video = document.getElementById('preloader-video');
+            video.playbackRate = 1;
+    
+            setTimeout(function () {
+                const preloader = document.getElementById('preloader');
+                preloader.style.opacity = '0'; // Fade out
+                setTimeout(function () {
+                    preloader.style.display = 'none'; // Hide after fade
+                }, 500); // Match fade-out duration
+            }, 3000); // 3 seconds delay
+        });
+    </script>
+    
+    </script>
     <!-- <div class="circle-container">
         <div class="circle"></div>
         <div class="circle"></div>
@@ -248,27 +267,7 @@
         <div class="loader-section section-right"></div>
     </div> -->
 
-    <div id="preloader">
-        <video autoplay muted loop id="preloader-video">
-            <source src="/preloader.mp4" type="video/mp4">
-            Your browser does not support the video tag.
-        </video>
-    </div>
-    <script>
-       window.addEventListener('load', function() {
-    const video = document.getElementById('preloader-video');
-    video.playbackRate = 1; 
-
-    setTimeout(function() {
-        const preloader = document.getElementById('preloader');
-        preloader.style.opacity = '0'; 
-        setTimeout(function() {
-            preloader.style.display = 'none'; 
-        }, 500); 
-    }, 3000); 
-});
-
-    </script>
+   
 
 
     <div id="caduceus-container">
@@ -287,165 +286,166 @@
                 src="Images/logo/Logo-Light.png"  alt="Brand Logo">
             </a>
 
-            <!-- Centered Navbar Links -->
-            <div 
-            style=" margin-left: 20vw;"
-            class="collapse navbar-collapse hamburgeritems centerdiv order-2 order-lg-0">
-                <ul class="navbar-nav center-links">
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="index.html" style="color: black;">
 
-
-                            <i class="fa-solid fa-house"></i> Home
-
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Html-files/menu.html" style="color: black;">
-
-                            <i class="fa-solid fa-bars"></i> Menu
-                        </a>
-                    </li>
-                    <li class="nav-item dropdown">
-
-                        <a class="nav-link dropdown-toggle" href="Html-files/services.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
-                            <i class="fa-solid fa-gear"></i> Services
-                        </a>
-
-                        <ul class="dropdown-menu">
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-check" ></i> Ordering options</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-truck"></i> Order Tracking</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="fa-solid fa-headset"></i> Customer Support</a></li>
-                            <li><a class="dropdown-item" href="#FAQ"><i class="fa-solid fa-question"></i> FAQS</a></li>
-                        </ul>
-                    </li>
-
-                    <!-- <li class="nav-item, nav-items">
-                        <a class="nav-link" href="Html-files/contact.html"><i class="fa-solid fa-phone"></i>Contact Us</a>
-
-                        
-
-                    </li> -->
-
-                   
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="Html-files/contact.html" style="color: black;">
-                            <i class="fa-solid fa-phone"></i> Contact Us 
-                        </a>
-                    </li>
-                    <li class="nav-item">
-
-                        <a class="nav-link" href="#" style="color: black;">
-                            <i class="fa-solid fa-question"></i> FAQ 
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Html-files/offers.html" style="color: black;">
-
-                            <i class="fa-solid fa-tag"></i> Offers
-
-                        </a>
-                    </li>
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="Html-files/RateUs.html" style="color: black;">
-                            <i class="fa-solid fa-star"></i> Rate Us
-                        </a>
-                    </li>
+             <!-- Centered Navbar Links -->
+             <div 
+             style=" margin-left: 20vw;"
+             class="collapse navbar-collapse hamburgeritems centerdiv order-2 order-lg-0">
+                 <ul class="navbar-nav center-links">
+                     <li class="nav-item">
+                         <a class="nav-link active" aria-current="page" href="index.html" style="color: black;">
+ 
+ 
+                             <i class="fa-solid fa-house"></i> Home
+ 
+                         </a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="Html-files/menu.html" style="color: black;">
+ 
+                             <i class="fa-solid fa-bars"></i> Menu
+                         </a>
+                     </li>
+                     <li class="nav-item dropdown">
+ 
+                         <a class="nav-link dropdown-toggle" href="Html-files/services.html" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false" style="color: black;">
+                             <i class="fa-solid fa-gear"></i> Services
+                         </a>
+ 
+                         <ul class="dropdown-menu">
+                             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-check" ></i> Ordering options</a></li>
+                             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-truck"></i> Order Tracking</a></li>
+                             <li><a class="dropdown-item" href="#"><i class="fa-solid fa-headset"></i> Customer Support</a></li>
+                             <li><a class="dropdown-item" href="#FAQ"><i class="fa-solid fa-question"></i> FAQS</a></li>
+                         </ul>
+                     </li>
+ 
+                     <!-- <li class="nav-item, nav-items">
+                         <a class="nav-link" href="Html-files/contact.html"><i class="fa-solid fa-phone"></i>Contact Us</a>
+ 
+                         
+ 
+                     </li> -->
+ 
                     
-                    
-
-                </ul>
-            </div>
-            
-            <span class="slider" style="width: 40px; height: 20px; display: none;"></span> 
-
-                        
-            <!-- Navbar Toggler -->
-    
-            <div class="mobile-menu ">
-                <div class="mobile-menu__trigger"><span></span></div>
-                <a class="page-scroll" href="index.html">
-                    <i class="fa-solid fa-house"></i> 
-                    Home
-                </a>
-                <a class="page-scroll" href="Html-files/menu.html">
-                    <i class="fa-solid fa-bars"></i> Menu
-                </a>
-                <a class="page-scroll" href="Html-files/services.html">
-                    <i class="fa-solid fa-gear"></i> Services
-                </a>
-                <a class="page-scroll active-link" href="Html-files/login.html">
-                    <i class="fa-solid fa-phone"></i> Contact Us
-                </a>
-                <a class="page-scroll active-link" href="Html-files/login.html">
-                    <i class="fa-solid fa-question"></i> FAQ
-                </a>
-                <a class="page-scroll active-link" href="Html-files/login.html">
-                    <i class="fa-solid fa-tag"></i> Offers
-                </a>
-                <a class="page-scroll active-link" href="Html-files/login.html">
-                    <i class="fa-solid fa-star"></i> Rate Us
-                </a>
-                <a class="page-scroll active-link" href="Html-files/login.html">
-                    <i class="fa-solid fa-sign-in"></i> Login
-                </a>
-                <a class="page-scroll" href="Html-files/signup.html">
-                    <i class="fa-solid fa-user"></i> Sign-Up
-                </a>
-                <a class="page-scroll" href="Html-files/cart.html">
-                    Cart <i class="fa-solid fa-cart-shopping"></i>
-                </a>
-            </div>
-
-            <!-- End Navbar Links -->
-
-
-            <div class="collapse navbar-collapse hamburgeritems enddiv order-3">
-                <ul class="navbar-nav end-links">
-
-                    
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="Html-files/login.html" style="color: black;">
-
-                            
-
-                            <i class="fa-solid fa-sign-in"></i> Login
-
-                        </a>
-                    </li>
-
-
-                    <li class="nav-item">
-                        <a class="nav-link" href="Html-files/signup.html" style="color: black;">
-
-                            <i class="fa-solid fa-user"></i> Sign-Up
-
-                            
-
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="Html-files/cart.html" style="color: black;">
-
-                            Cart <i class="fa-solid fa-cart-shopping"></i>
-
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- Theme Toggle Icon -->
-        <div id="sun-moon-mode-toggler" class="toggle-container" >
-            <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
-            <label  id="themeChangeToggle" class="theme-switch" for="themeToggle">
-            <div class="toggle-button">
-            </div>
-            </label>
-          </div>
-    </nav>
+                     <li class="nav-item">
+ 
+                         <a class="nav-link" href="Html-files/contact.html" style="color: black;">
+                             <i class="fa-solid fa-phone"></i> Contact Us 
+                         </a>
+                     </li>
+                     <li class="nav-item">
+ 
+                         <a class="nav-link" href="#" style="color: black;">
+                             <i class="fa-solid fa-question"></i> FAQ 
+                         </a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="Html-files/offers.html" style="color: black;">
+ 
+                             <i class="fa-solid fa-tag"></i> Offers
+ 
+                         </a>
+                     </li>
+ 
+                     <li class="nav-item">
+                         <a class="nav-link" href="Html-files/RateUs.html" style="color: black;">
+                             <i class="fa-solid fa-star"></i> Rate Us
+                         </a>
+                     </li>
+                     
+                     
+ 
+                 </ul>
+             </div>
+             
+             <span class="slider" style="width: 40px; height: 20px; display: none;"></span> 
+ 
+                         
+             <!-- Navbar Toggler -->
+     
+             <div class="mobile-menu ">
+                 <div class="mobile-menu__trigger"><span></span></div>
+                 <a class="page-scroll" href="index.html">
+                     <i class="fa-solid fa-house"></i> 
+                     Home
+                 </a>
+                 <a class="page-scroll" href="Html-files/menu.html">
+                     <i class="fa-solid fa-bars"></i> Menu
+                 </a>
+                 <a class="page-scroll" href="Html-files/services.html">
+                     <i class="fa-solid fa-gear"></i> Services
+                 </a>
+                 <a class="page-scroll active-link" href="Html-files/login.html">
+                     <i class="fa-solid fa-phone"></i> Contact Us
+                 </a>
+                 <a class="page-scroll active-link" href="Html-files/login.html">
+                     <i class="fa-solid fa-question"></i> FAQ
+                 </a>
+                 <a class="page-scroll active-link" href="Html-files/login.html">
+                     <i class="fa-solid fa-tag"></i> Offers
+                 </a>
+                 <a class="page-scroll active-link" href="Html-files/login.html">
+                     <i class="fa-solid fa-star"></i> Rate Us
+                 </a>
+                 <a class="page-scroll active-link" href="Html-files/login.html">
+                     <i class="fa-solid fa-sign-in"></i> Login
+                 </a>
+                 <a class="page-scroll" href="Html-files/signup.html">
+                     <i class="fa-solid fa-user"></i> Sign-Up
+                 </a>
+                 <a class="page-scroll" href="Html-files/cart.html">
+                     Cart <i class="fa-solid fa-cart-shopping"></i>
+                 </a>
+             </div>
+ 
+             <!-- End Navbar Links -->
+ 
+ 
+             <div class="collapse navbar-collapse hamburgeritems enddiv order-3">
+                 <ul class="navbar-nav end-links">
+ 
+                     
+ 
+                     <li class="nav-item">
+                         <a class="nav-link" href="Html-files/login.html" style="color: black;">
+ 
+                             
+ 
+                             <i class="fa-solid fa-sign-in"></i> Login
+ 
+                         </a>
+                     </li>
+ 
+ 
+                     <li class="nav-item">
+                         <a class="nav-link" href="Html-files/signup.html" style="color: black;">
+ 
+                             <i class="fa-solid fa-user"></i> Sign-Up
+ 
+                             
+ 
+                         </a>
+                     </li>
+                     <li class="nav-item">
+                         <a class="nav-link" href="Html-files/cart.html" style="color: black;">
+ 
+                             Cart <i class="fa-solid fa-cart-shopping"></i>
+ 
+                         </a>
+                     </li>
+                 </ul>
+             </div>
+         </div>
+         <!-- Theme Toggle Icon -->
+         <div id="sun-moon-mode-toggler" class="toggle-container" >
+             <input type="checkbox" id="themeToggle" class="switch-checkbox" onclick="toggleTheme()">
+             <label  id="themeChangeToggle" class="theme-switch" for="themeToggle">
+             <div class="toggle-button">
+             </div>
+             </label>
+           </div>
+     </nav>
 
 
     
@@ -790,7 +790,7 @@
                 <div class="card rounded-5">
                     <div class="img-container">
                         <img src="https://shahidining.com.au/wp-content/uploads/2020/05/secret-to-indian-flavour-1536x864.jpg"
-                            class="img-fluid mt-4 " alt="...">
+                            class="img-fluid mt-4 " alt="//.">
                     </div>
                     <div class="card-body">
                         <h2 class="card-title">Authentic Indian Flavors</h2>
@@ -803,7 +803,7 @@
                 <div class="card rounded-5">
                     <div class="img-container">
                         <img src="https://saavi.com.au/wp-content/uploads/2016/02/image0023-1.jpg"
-                            class="img-fluid mt-4" alt="...">
+                            class="img-fluid mt-4" alt="//.">
                     </div>
                     <div class="card-body">
                         <h2 class="card-title">Tech-Infused Dining Experience</h2>
@@ -818,7 +818,7 @@
                 <div class="card rounded-5">
                     <div class="img-container">
                         <img src="https://i.ndtvimg.com/i/2015-06/fusion-food_625x350_81434107799.jpg"
-                            class="img-fluid mt-4" alt="...">
+                            class="img-fluid mt-4" alt="//.">
                     </div>
                     <div class="card-body">
                         <h2 class="card-title">Innovative Fusion Dishes</h2>
@@ -1123,8 +1123,8 @@
         <h2 class="text-center">Download This Amazing App Now!</h2>
         <br>
         <p class="best_discount">For best discounts and free delivery download the app now from your Google Play Store or App Store.</p>
-        git add .
-
+        
+        <a href="#" class="app_store"><img src="./Images/app_download/get_it_on_google_play_store.png" class="app-download-img" alt="Download on the Google Play Store"></a>
         <a href="#" class="app_store"><img src="./Images/app_download/download-on-the-app-store.png" class="app-download-img" alt="Download on the Apple App Store"></a>
     </div>
 
@@ -1139,7 +1139,7 @@
                                 <a class="nav-link" href="#">Home</a>
                             </li>
                             <li class="nav-item" style="margin-left: 90px;">
-                                <a class="nav-link" href="./Html-files/menu.html">Menu</a>
+                                <a class="nav-link" href="index.html">Menu</a>
                             </li>
                             <li class="nav-item" style="margin-left: 90px;">
                                 <a class="nav-link" href="./Html-files/services.html">Services</a>
@@ -1231,7 +1231,7 @@
             <h4 class="follow-us">Follow Us</h4>
             <div class="social-icons">
                 <a href="https://www.linkedin.com/company/healthybitesexpress/" target="_blank" class="linkedin"><i class="fa-brands fa-linkedin fa-beat"></i></a>
-                <a href="https://www.instagram.com/healthybites_express/" target="_blank" class="instagram"><i class="fa-brands fa-instagram fa-beat"></i></a>
+                <a href="https://www.instagram.com/healthybites_express.in/" target="_blank" class="instagram"><i class="fa-brands fa-instagram fa-beat"></i></a>
                 <a href="https://www.facebook.com/people/HealthyBites-Express/61569029786869/" target="_blank" class="facebook"><i class="fa-brands fa-facebook fa-beat"></i></a>
                 <a href="https://x.com/healthybites_ex" target="_blank" class="twitter"><i class="fa-brands fa-x-twitter fa-beat"></i></a>
             </div>
@@ -1270,7 +1270,7 @@
   <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   
-  <script src=../Html-files/googletranslate.js></script>
+  <script src=//Html-files/googletranslate.js></script>
 
 
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
@@ -1287,7 +1287,7 @@
 
         // Chatbot
         window.botpressWebChat.init({
-            "composerPlaceholder": "Message...",
+            "composerPlaceholder": "Message//.",
             "botConversationDescription": "Welcome to Foodie!",
             "botId": "2093cb3a-9343-4dec-a60f-2f69a5948cac",
             "hostUrl": "https://cdn.botpress.cloud/webchat/v1",

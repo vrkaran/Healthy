@@ -113,46 +113,39 @@
           z-index: 9999;
       }
       
+/* Preloader container */
 #preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: #f6f5f5; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
+    position: fixed; /* Fixed position on the viewport */
+    top: 0; /* Align to the top */
+    left: 0; /* Align to the left */
+    width: 100vw; /* Full width of the viewport */
+    height: 100vh; /* Full height of the viewport */
+    background: #f6f5f5; /* Background color */
+    display: flex; /* Center content using flexbox */
+    justify-content: center; /* Horizontally center */
+    align-items: center; /* Vertically center */
+    z-index: 9999; /* Place on top of all other elements */
+    opacity: 1; /* Start fully visible */
+    transition: opacity 0.5s ease; /* Smooth fade-out transition */
 }
 
+/* Responsive preloader video */
 #preloader-video {
-    width: 200%; 
-    height: auto; 
-    max-width: 600px; 
+    max-width: 100%; /* Scale down the width to fit */
+    max-height: 100%; /* Scale down the height to fit */
+    width: auto; /* Maintain aspect ratio */
+    height: auto; /* Maintain aspect ratio */
+    object-fit: contain; /* Ensure the video fits within the preloader container */
 }
 
+/* Optional: For smaller devices */
+@media (max-width: 768px) {
+    #preloader-video {
+        max-width: 90%; /* Slight margin for smaller screens */
+        max-height: 90%; /* Slight margin for smaller screens */
+    }
+}
 
-@media (max-width: 780px) {
-   
-#preloader {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 48%;
-    height: 48%;
-    background: #f6f5f5; 
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 9999; 
-}
-#preloader-video {
-    width: 100%; 
-    height: auto; 
-    max-width: 600px; 
-}
-}
 
 
   </style>
