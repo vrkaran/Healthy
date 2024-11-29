@@ -37,7 +37,6 @@
       rel="stylesheet"
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer"
-
     />
     <link rel="shortcut icon" type="image/x-icon" href="../Favicon image/favicon.ico" />
     <link href="https://fonts.googleapis.com/css2?family=Fuggles&family=Mooli&family=Oswald:wght@600&family=Roboto:wght@100;300&display=swap" rel="stylesheet" />
@@ -209,12 +208,12 @@
             background-color: #137cbd;
             transition: background-color 0.3s, transform 0.3s;
         }
-    </style>
+    
 
 
 
 
-}
+
 
 
 /* Preloader container */
@@ -255,59 +254,7 @@
     </style>
     
   </head>
-
-  <body
-    data-bs-spy="scroll"
-    data-bs-target=".navbar"
-    data-bs-offset="100"
-    onload="blinker();"
-  >
-
-      <!-- Progress bar -->
-      <div id="progressBar"></div>
-      <script>
-          window.onscroll = function () {
-              var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-              var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-              var scrolled = (winScroll / height) * 100;
-              document.getElementById("progressBar").style.width = scrolled + "%";
-          };
-      </script>
-      <!-- end -->
-
-.circle {
-      position: absolute;
-      width: 20px;
-      height: 20px;
-      border-radius: 50%;
-      pointer-events: none;
-      background: radial-gradient(circle, rgba(255, 0, 0, 0.466), rgba(255, 52, 52, 0.5));
-      transition: transform 0.1s, left 0.1s, top 0.1s;
-      box-shadow: 0 0 20px #faff64,
-        0 0 60px #f52323,
-        0 0 100px #ff0000;
-        animation: colors 1s infinite;
-  transform: translate(-50%, -50%);
-    }
-
-    .circle-container {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      pointer-events: none;
-      z-index: 9999;
-    }
-
-    @media (max-width: 724px) {
-      .circle-container{
-        display: none;
-      }
-    }
-    </style>
-    
-  </head>
+ 
 
   <body
     data-bs-spy="scroll"
@@ -351,7 +298,7 @@
               >
               <ul class="dropdown-menu">
                 <li><a class="dropdown-item" href="#">Ordering options</a></li>
-                    <li><a class="dropdown-item" href="#">Order Tracking</a></li>
+                    <li><a class="dropdown-item" href="../Html-files/ordertracking.html">Order Tracking</a></li>
                     <li><a class="dropdown-item" href="#">Customer Support</a></li>
                     <li><a class="dropdown-item" href="#">FAQS</a></li>
                 </ul>
@@ -772,7 +719,7 @@
       setTimeout(function() {
           preloader.style.display = 'none'; 
       }, 500); 
-  }, 3000); 
+  }, 500); 
 });
 
   </script>
